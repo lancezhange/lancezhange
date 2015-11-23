@@ -1,0 +1,13 @@
+layout: post
+title: "Hello There"
+date: 2013-09-29 18:09
+comments: true
+categories: [humanity,life]
+tags: [octopress]
+---
+
+It really took a lot of time for me to set this blog up using octopress.<!--more--> This can't be done without Google and Baidu with which i
+searched out all solutions when encounted with problems. I would like  to give my special thanks to [this excellent post](http://caiqinghua.com/blog/2013/08/26/deploy-octopress-to-github-pages/) which coverd nearly all the things that need to be done.
+Anyway, here i am. Hello world!
+
+*Note*: this post is  old and may contains out-date information.
