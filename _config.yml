@@ -82,5 +82,4 @@ deploy:
 backup:
     type: git
     repository:
-       github: git@github.com:lancezhange/lancezhange.git, source
-       gitcafe: git@github.com:lancezhange/lancezhange.git, source
+       github: git@github.com:lancezhange/lancezhange.github.com, source
