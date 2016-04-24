@@ -4,7 +4,7 @@ tags: [javascript]
 category: [tips, hexo]
 ---
 
-Impress.js 非常炫酷，但如果能够将它嵌入页面当中，就更好了。利用 jmpress.js, 我们就能做到这一点。<!--more-->
+Impress.js 确实非常炫酷，但如果能够将它嵌入页面当中，就更好了。利用 jmpress.js, 我们就能做到这一点。<!--more-->
 
 jmpress.js 是 jQuery 版的 impress.js. 只需要包含 jQuery 和 jmpress 库，并引用对应的 css 就能用了。就是如此简单。
 

@@ -12,6 +12,13 @@
   <% } %>
 <% } else { %>
   <% var last; %>
+  <% var total_post_count=0; %>
+  <% site.posts.each(function(post){ %>
+    <% total_post_count = total_post_count+1; %>
+    <% }) %>
+      <span class="archive-page-counter">
+      哇哦! 目前共计 <%= total_post_count %> 篇日志
+     </span>
   <% page.posts.each(function(post, i){ %>
     <% var year = post.date.year(); %>
     <% if (last != year){ %>

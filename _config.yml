@@ -78,8 +78,3 @@ deploy:
   branch: master
 
 
-# backup
-backup:
-    type: git
-    repository:
-       github: git@github.com:lancezhange/lancezhange.github.com, source

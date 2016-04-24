@@ -25,7 +25,8 @@ fancybox: true
 mathjax: true
 
 # Miscellaneous
-google_analytics: ''
+# google_analytics: ''
+baidu_tongji: true
 favicon: /favicon.png
 
 #你的头像url
