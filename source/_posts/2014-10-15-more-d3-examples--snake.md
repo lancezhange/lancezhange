@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "More D3 Example -- Snake"
 date: 2014-10-15 12:37
 comments: true

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "生活&软件（杂记）"
 date: 2013-10-20 21:21
 comments: true

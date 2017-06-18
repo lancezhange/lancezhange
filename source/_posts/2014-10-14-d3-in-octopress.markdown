@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "D3 in Octopress"
 date: 2014-10-14 12:37
 comments: true

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "GSL 在 Ubuntu 下的安装和使用"
 date: 2014-10-24 15:34
 comments: true

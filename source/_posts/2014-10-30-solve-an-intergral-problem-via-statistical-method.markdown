@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "用统计方法求积分"
 date: 2014-10-30 19:53
 comments: true

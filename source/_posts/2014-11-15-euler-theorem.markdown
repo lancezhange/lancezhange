@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "欧拉证明"
 date: 2014-11-15 09:18
 comments: true

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "R Package nmcdr is Now on CRAN"
 date: 2014-05-27 07:40
 comments: true

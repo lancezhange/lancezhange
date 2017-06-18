@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "word2vec"
 date: 2014-10-10 09:30
 comments: true

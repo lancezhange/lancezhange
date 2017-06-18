@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "More D3 Example -- Rounded Rectangles"
 date: 2014-10-16 12:37
 comments: true
