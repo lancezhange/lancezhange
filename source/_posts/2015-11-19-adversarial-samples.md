@@ -1,6 +1,8 @@
 title: "对抗样本和对抗网络"
 date: 2015-11-19 18:07:03
-categories: [ml]
+tags: [GANs, ML, DL]
+categories: [tech]
+layout: single-column
 ---
 
 所谓对抗 样本是指将实际样本略加扰动而构造出的合成样本，对该样本，分类器非常容易将其类别判错，这意味着光滑性假设(*相似的样本应该以很高的概率被判为同一类别*)某种程度上被推翻了。<!--more-->

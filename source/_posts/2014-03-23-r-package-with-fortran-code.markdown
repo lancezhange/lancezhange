@@ -3,7 +3,7 @@ layout: post
 title: "R Package With Fortran Code"
 date: 2014-03-23 21:16
 comments: true
-categories: [computer_science]
+categories: [tech]
 tags: [R, Fortran]
 ---
 R中编写函数是很方便的，所以一般情况下，如果对速度要求不是很高或者数据量不大，光用R就够了。但如果是计算密集型，各种循环嵌套你侬我侬又无法用apply家族向量化处理时，考虑用Fortran 或者 C 来提高代码速度是明智的选择。<!--more-->这种速度的提升是很可观的，我自己就做过一个实验，R的代码跑了一个多小时还出不了结果，用 Fortran 写成动态加载库调用，仅仅用了5分钟不到！  

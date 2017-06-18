@@ -3,7 +3,7 @@ layout: post
 title: "从一次失败的实习面试经历中收获的经验"
 date: 2014-10-31 16:27
 comments: true
-categories: [humantiy, life]
+categories: [life]
 keywords: interview, programming, algorithm
 ---
 

@@ -3,8 +3,11 @@ layout: post
 title: "欧拉证明"
 date: 2014-11-15 09:18
 comments: true
-categories: math_stats
+tags: math
+categories: [tech]
 keywords: 欧拉, 素数, 证明
+mathjax: true
+layout: single-column
 ---
 数学的历史夜空中，伟大的数学家们的名字如群星闪耀，大神[欧拉](http://baike.baidu.com/item/%E8%8E%B1%E6%98%82%E5%93%88%E5%BE%B7%C2%B7%E6%AC%A7%E6%8B%89?from_id=162567&type=syn&fromtitle=%E6%AC%A7%E6%8B%89&fr=aladdin)便是其中之一（也许也是最为闪亮的一个？）。作为一名瑞士数学家，欧拉将自己的名字留在了数学的诸多分支当中，各种欧拉常数、欧拉公式、欧拉定理随处可见，难怪拉普拉斯说：读读欧拉，他是所有人的老师。<!--more-->
 

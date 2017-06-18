@@ -3,14 +3,14 @@ layout: post
 title: "More D3 Example -- Rounded Rectangles"
 date: 2014-10-16 12:37
 comments: true
-categories: [computer_science,tips]
+categories: [tech]
 tags: D3
+layout: single-column
 ---
 下面是另外一个好玩的D3作品，出自[这里](http://bl.ocks.org/mbostock/1123639)，enjoy!<!--more-->
 
 <script src="http://d3js.org/d3.v3.min.js"></script> 
 <div id="body1">
-如果觉得很酷，就快去学<a href="http://d3js.org/">D3</a> 吧。
 </div>
 
 <script>

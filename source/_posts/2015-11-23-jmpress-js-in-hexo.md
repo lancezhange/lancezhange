@@ -1,7 +1,7 @@
 title: "jmpress.js in hexo"
 date: 2015-11-23 18:02:37
-tags: [javascript]
-category: [tips, hexo]
+tags: [js, hexo]
+category: [tech]
 ---
 
 Impress.js 确实非常炫酷，但如果能够将它嵌入页面当中，就更好了。利用 jmpress.js, 我们就能做到这一点。<!--more-->

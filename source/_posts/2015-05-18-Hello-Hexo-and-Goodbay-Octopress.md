@@ -1,7 +1,7 @@
 title: "Hello Hexo and Goodbay Octopress"
 date: 2015-05-18 09:30:48
 tags:  [hexo, octopress]
-category: [tips]
+category: [tech]
 ---
 So, Hello Hexo, and Goodbay Octopress
 <!--more-->
@@ -13,20 +13,23 @@ Second reason is  that i like this pretty theme [Yilia](https://github.com/litte
 #### mathjax 
 Some math formulas in my old octopress posts could not be rendered properly. So i changed contents of the file `/themes/yilia/layout/_partial/mathjax.ejs` to following:
 
-    <!-- mathjax config similar to math.stackexchange -->
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-       jax: ["input/TeX", "output/HTML-CSS"],
-       tex2jax: {
-       inlineMath: [ ['$', '$'] ],
-       displayMath: [ ['$$', '$$']],
-       processEscapes: true,
-       skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      },
-      messageStyle: "none"
-    });
-    </script>
-    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+```
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+   jax: ["input/TeX", "output/HTML-CSS"],
+   tex2jax: {
+   inlineMath: [ ['$', '$'] ],
+   displayMath: [ ['$$', '$$']],
+   processEscapes: true,
+   skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none"
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+```
+
 Characters like `_` and `*` must be manually escaped to get mathjax working properly.
 
 #### D3, Impress.js, P5.js

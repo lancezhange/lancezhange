@@ -3,36 +3,47 @@ layout: post
 title: "D3 in Octopress"
 date: 2014-10-14 12:37
 comments: true
-categories: [computer_science,tips]
+categories: [tech]
 tags: D3
+layout: single-column
 ---
 
 [D3.js(Data-Driven Documents)](http://d3js.org/) 是 javascript 的一个库，用以做基于浏览器的数据可视化。<!--more-->D3 功能强大，能够做出非常炫酷的可视化作品，语法也相当简洁易学。因此，倘若能在 Octopress 博客中加入D3，想必是极好的。
 
 如何做呢，其实也简单，下载 D3, 将 **d3.v3.js** 放到 **source/javascripts** 目录下，
 然后在 **source/_includes/head.html** 中，在加载 octopress.js 的那一行之后，加上下面这一句
-    
+
+```    
     <script src="{{ root_url }}/javascripts/d3.v3.js" type ="text/javascript"> </script>
+```
 
 这样就不用每次手动加入D3的头部依赖了。然后要做的就是在文章中加入D3代码，如下
     
+```        
         <scipt type ="text/javascript">
         // D3 codes 写在这里 
         </script> 
+```
 
 不过这里有一点需要特别注意的地方：D3中的
 
+```
     d3.select("body")
+```
 
 是一条常见的语句，但在博客中最好不要这样用，因为这里 body 指的是最后生成的 html 的 body,而 rake generate 生成的 html 文档中，body 部分还加入了许多东西，比如侧边栏啊什么的，所以，最好自己写一个如下的 div
 
-    <div id='#body1'>
-          this is the body where D3 would works
-    </div> 
-    
+```
+  <div id='#body1'>
+  </div> 
+```
+
+
 然后用
 
+```
     d3.select("#body1")
+```
 
 这样，按照 id 选取，就能把 D3 能够影响的范围控制在具有该 id 的 div 之中。  
 

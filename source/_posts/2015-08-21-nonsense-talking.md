@@ -1,6 +1,7 @@
 title: "胡言乱语"
 date: 2015-08-21 22:03:48
 category: life
+layout: single-column
 ---
 
 24岁生日，正好是周末，便去帝都见久未谋面的老友。<!--more--> 言谈之间，一如高中时亲近无间，也是乐事。

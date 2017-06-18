@@ -3,8 +3,9 @@ layout: post
 title: "趣题几则2"
 date: 2014-11-02 19:33
 comments: true
-categories: [humantiy, tips]
+categories: [life]
 keywords: 趣题
+tags: puzzle
 ---
 
 在[趣题几则]({%post_url 2014-10-25-delightful-puzzles%})中，我们介绍了几道很有意思的益智题目，下面再补充几道。<!--more-->

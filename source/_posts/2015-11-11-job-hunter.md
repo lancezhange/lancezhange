@@ -1,6 +1,7 @@
 title: "求职记"
 date: 2015-11-11 17:01:31
 category: life
+layout: single-column
 ---
 
 求职快一个月，现在终于尘埃落定了。<!--more-->

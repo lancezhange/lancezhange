@@ -1,12 +1,14 @@
 title: "hexo 中的幻灯片"
 date: 2015-11-24 09:39:43
-category: [tips, hexo]
+tags: [hexo]
+category: [tech]
+layout: single-column
 ---
 
 
-如果能在博客中插入幻灯片，想必是极好的。<!--more-->
+如果能在博客中插入幻灯片，想必是极好的。
 
-第一种方式是嵌入式幻灯片，这可以像我们之前引入 jmpress.js 那样实现，不过那有点麻烦，直接用 `iframe` 其实就足够了。
+第一种方式是嵌入式幻灯片，这可以像我们之前引入 jmpress.js 那样实现，不过那有点麻烦，直接用 `iframe` 其实就足够了。<!--more-->
 
 比如，下面将我的 About 页面嵌入（点击之后，方向键即可翻页）
 

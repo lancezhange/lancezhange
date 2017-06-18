@@ -3,8 +3,8 @@ layout: post
 title: "电影《母亲》"
 date: 2013-11-10 22:35
 comments: true
-categories: [humanity]
-tags: [movie]
+categories: [life]
+layout: single-column
 ---
 
 韩国导演奉俊昊2009年的作品。<!--more-->   

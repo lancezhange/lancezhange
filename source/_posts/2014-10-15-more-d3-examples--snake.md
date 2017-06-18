@@ -3,16 +3,15 @@ layout: post
 title: "More D3 Example -- Snake"
 date: 2014-10-15 12:37
 comments: true
-categories: [computer_science,tips]
+categories: [tech]
 tags: D3
+layout: single-column
 ---
 来看下面这个摆动的蛇的例子<!--more-->
 
 <script src="http://d3js.org/d3.v3.min.js"></script> 
 <div id="body1">
-如果觉得很酷，就快去学<a href="http://d3js.org/">D3</a> 吧。
 
-注：忘记了当时从哪里抄来的代码，希望不要侵犯到别人的版权。
 </div>
 
 <script type="text/javascript"> 
@@ -60,3 +59,6 @@ function slide() {
 }
 </script>
 
+如果觉得很酷，就快去学<a href="http://d3js.org/">D3</a> 吧。
+
+注：忘记了当时从哪里抄来的代码，希望不要侵犯到别人的版权。

@@ -4,10 +4,10 @@
 
 # Site
 title: Lancezhange
-subtitle: Share Valuable Stuff
+subtitle: 蓝色战歌
 description:
 author: lancezhange
-language:
+language: zh-CN
 timezone:
 
 # URL
@@ -37,13 +37,15 @@ render_drafts: false
 post_asset_folder: true
 relative_link: false
 future: true
+
 highlight:
   enable: true
+  auto_detect: true
   line_number: true
   tab_replace:
 
 # Category & Tag
-default_category: uncategorized
+default_category: life
 category_map:
 tag_map:
 
@@ -62,13 +64,17 @@ pagination_dir: page
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
-theme: yilia
+theme: maupassant
 
 feed:
   type: atom
   path: atom.xml
   limit: false
 
+# Security
+##
+encrypt:
+    enable: true
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
@@ -78,3 +84,4 @@ deploy:
   branch: master
 
 
+skip_render: [love/**]

@@ -3,7 +3,10 @@ layout: post
 title: "趣题几则"
 date: 2014-10-25 18:52
 comments: true
-categories: [humanity, tips]
+categories: [life]
+tags: puzzle
+mathjax: true
+layout: single-column
 ---
 
 

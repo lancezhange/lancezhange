@@ -3,29 +3,38 @@ layout: post
 title: "word2vec"
 date: 2014-10-10 09:30
 comments: true
-categories: nlp
-tags: word2vec
+categories: tech
+tags: nlp
+layout: single-column
 ---
-其实听闻[word2vec](http://code.google.com/p/word2vec/)的鼎鼎大名已经很久了<!--more-->，但 google 的C源代码在 windows 下即使用 cygwin 也还是不能 make 成功，总是报出找不到 pthread.h 的错误，而 pthread.h 貌似是 linux 特有的头文件，只好作罢。看到[别人](http://blog.csdn.net/zhoubl668/article/details/24314769)玩 word2vec 玩的很 high, 真是羡慕。  
+
+其实听闻[word2vec](http://code.google.com/p/word2vec/)的鼎鼎大名已经很久了，但 google 的C源代码在 windows 下即使用 cygwin 也还是不能 make 成功，总是报出找不到 pthread.h 的错误，而 pthread.h 貌似是 linux 特有的头文件，只好作罢。看到[别人](http://blog.csdn.net/zhoubl668/article/details/24314769)玩 word2vec 玩的很 high, 真是羡慕<!--more-->。  
+
 前些日子，[spark](https://spark.apache.org/) 发布了 1.1.0 版本，其中首次加入了 word2vec 的实现，于是赶紧拿来尝试了一番。让人失望的是，[官方给出的示例](http://people.apache.org/~pwendell/spark-1.1.0-snapshot2-docs/mllib-feature-extraction.html)在我的机子上居然没有跑成功，经过一番实验(`val line = Source.fromFile("e:/tempfile/text8").getLines` 返回 `java.lang.OutOfMemoryError: Java heap space` 的错误，而 `val n = sc.textFile("e:/tempfile/text8").count` 能让 spark 奔溃)，基本可以证实是由于给出的训练文件 text8 格式不对，貌似这个90M+的文件只有一行，而作为一行，它显然太长了。    
 
 不必纠结于此，我们改用英国作家简奥斯汀的名作艾玛(**Emma**)一书（可在 [Project Gutenberg](http://www.gutenberg.org/)上下载）来做
 
+```
     import org.apache.spark.mllib.feature.Word2Vec
     val input = sc.textFile("e:/database/emma/emma.txt").map(line => line.split(" ").toSeq)  
     val word2vec = new Word2Vec()
     val model = word2vec.fit(input)  
+```
 
 这样，模型顺利训练出来。下面找一下 Emma 的相近词  
 
+```
     val synonyms = model.findSynonyms("Emma", 40)
     for((synonym, cosineSimilarity) <- synonyms) {
         println(s"$synonym $cosineSimilarity")
      }
+```
 
 不过上面这种打印太难看了，改进一下 
 
+```
     synonyms.foreach{case (synonym, cosineSimilarity) => printf("%-20s %-20.16f\n",synonym, cosineSimilarity)}
+```
 
 效果如下图
 
@@ -33,6 +42,7 @@ tags: word2vec
 
 下面考虑用中文文本训练一个模型。我用的训练集是很久以前在[数据堂](http://datatang.com/)下载的 历届矛盾文学奖 文本集，其中收录的是前8届茅盾文学奖获奖作品的文本。在用 spark 做 word2vec 之前，必须先做分词。这里我选择用 R 的 **Rwordseg** 包来做分词，并将结果写入 words.txt 文件中（当然，这里我们做的非常粗糙，就是简单的分词，停用词都没处理；如果有个好点的词典，分词的效果会更好，这是题外话）
      
+```
      library(Rwordseg)
      
      data_dir = "E:/database/历届矛盾文学奖作品/历届茅盾文学奖"
@@ -45,6 +55,7 @@ tags: word2vec
        term = unlist(lapply(content, segmentCN))
        write(term, file = result_file, append=T, ncolumns=10)
       }
+```
 
 得到的 words.txt 不足40M，然后用 spark 做 word2vec，代码和前面的类似。  
 虽然模型也能顺利训练出来，但是新的问题又冒出来了：在 powershell 下，打印出来的相似词全都是乱码。后来各种尝试，包括转换编码方式，将结果写入文件，写成应用提交而不是 spark-shell 运行，等等，都不能解决这个问题。简直是当初用 Python 处理中文的噩梦重演啊，哭----最后仍然未能解决这个问题，囧。  
@@ -77,7 +88,7 @@ Java 的 [DL4J](http://deeplearning4j.org/compare-dl4j-torch7-pylearn.html)(Deep
 结果还不赖。  
 
 ## Todo  
-- [1] 深入了解一下 word2vec 背后的原理，重点研读几篇相关论文，以及有道技术分享的 [Deep Learning 实战之 Word2vec](http://techblog.youdao.com/?p=915)
+- 深入了解一下 word2vec 背后的原理，重点研读几篇相关论文，以及有道技术分享的 [Deep Learning 实战之 Word2vec](http://techblog.youdao.com/?p=915)
 
   
 
