@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "hexo": {
-    "version": "3.3.7"
+    "version": "3.3.8"
   },
   "dependencies": {
-    "hexo": "^3.3.7",
+    "hexo": "^3.3.8",
     "hexo-blog-encrypt": "1.1.9",
     "hexo-deployer-git": "0.0.4",
     "hexo-generator-archive": "^0.1.0",
@@ -22,6 +22,6 @@
     "hexo-renderer-pug": "0.0.5",
     "hexo-renderer-sass": "^0.3.1",
     "hexo-renderer-stylus": "^0.2.0",
-    "hexo-server": "^0.1.2"
+    "hexo-server": "^0.1.3"
   }
 }
