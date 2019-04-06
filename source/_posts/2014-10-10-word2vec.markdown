@@ -37,7 +37,7 @@ layout: single-column
 
 效果如下图
 
-{% img http://pic.yupoo.com/lancezhange_v/E7wetj2D/NRDtx.jpg %}  
+{% asset_img http://pic.yupoo.com/lancezhange_v/E7wetj2D/NRDtx.jpg %}  
 
 下面考虑用中文文本训练一个模型。我用的训练集是很久以前在[数据堂](http://datatang.com/)下载的 历届矛盾文学奖 文本集，其中收录的是前8届茅盾文学奖获奖作品的文本。在用 spark 做 word2vec 之前，必须先做分词。这里我选择用 R 的 **Rwordseg** 包来做分词，并将结果写入 words.txt 文件中（当然，这里我们做的非常粗糙，就是简单的分词，停用词都没处理；如果有个好点的词典，分词的效果会更好，这是题外话）
      
