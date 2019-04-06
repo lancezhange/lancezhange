@@ -1,3 +1,4 @@
+---
 title: "最近的生活感悟"
 date: 2017-06-17 23:48:33
 category: life

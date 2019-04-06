@@ -1,3 +1,4 @@
+---
 title: "对抗样本和对抗网络"
 date: 2015-11-19 18:07:03
 tags: [GANs, ML, DL]
@@ -23,7 +24,9 @@ layout: single-column
 随着对对抗样本的更多更深入研究，人们逐渐发现，对抗样本并不是诅咒，而是祝福，因为可以利用对抗样本生成对抗网络(GANs)。[Generative Adversarial Networks, by Ian Goodfellow, et al, ](http://arxiv.org/abs/1406.2661) 最早提出了 *GANs* 的概念。在 GANs 中，包含一个生成模型G和一个判别模型D，D要判别样本是来自G还是真实数据集，而G的目标是生成能够骗过D的对抗样本，可以将G看做假币生产者，而D就是警察，通过G和D的不断交手，彼此的技能都会逐渐提高，最终使得G生产的假币能够以假乱真。
 受此启发，[Deep Generative Image Models using a Laplacian Pyramid of Adversarial Networks， by Emily Denton, et al](http://arxiv.org/abs/1506.05751)通过为拉普拉斯金字塔中的每一个尺度建立一个生成模型，使得最终生成的图片与自然图片达到肉眼无法区分的地步，代码参见[项目eyescream](https://github.com/facebook/eyescream) 。还有人用 GANs [生成猫脸的图片](https://github.com/aleju/cat-generator)，也有人用它[生成人脸](http://torch.ch/blog/2015/11/13/gan.html)，GANs 真是简直要被玩坏了。进一步，[Conditional generative adversarial nets for convolutional face generationby Jon Gauthier](http://www.foldl.me/2015/conditional-gans-face-generation/)提出了条件生成对抗网络。文中给出了一个将人脸老化并加上笑容的例子，简直碉堡。
 
-![老化笑脸](oldface.png)
+
+![人脸老化](oldface.png)
+
 
 ------------------
 

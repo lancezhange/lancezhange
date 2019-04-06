@@ -1,8 +1,10 @@
+---
 title: "Hello Echarts"
 date: 2015-12-05 16:15:53
 tags: [Echats]
 category: [tech]
 ---
+
 [Echarts](http://ecomfe.github.io/echarts/index.html), open sourced by Baidu, is a fantanstic javascript library for visualizing web data. It is easy to use, so let us give it a try.
 <!--more-->
 

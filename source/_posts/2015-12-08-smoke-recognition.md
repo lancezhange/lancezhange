@@ -1,3 +1,4 @@
+---
 title: "烟火识别"
 date: 2015-12-08 10:25:45
 category: tech

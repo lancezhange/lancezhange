@@ -82,4 +82,8 @@ deploy:
   type: git
   repo: git@github.com:lancezhange/lancezhange.github.com
   branch: master
-  
+
+backup:
+  type: git
+  repository:
+    github: git@github.com:lancezhange/lancezhange.git,master
