@@ -87,4 +87,5 @@ backup:
   type: git
   theme: maupassant
   message: hexo blog source   
-  repository: git@github.com:lancezhange/lancezhange.git,master
+  repository: 
+    github: git@github.com:lancezhange/lancezhange.git,master
