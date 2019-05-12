@@ -1,3 +1,4 @@
+---
 title: "MXNet 的安装和初试"
 date: 2015-11-20 15:33:37
 tags: [MxNet]

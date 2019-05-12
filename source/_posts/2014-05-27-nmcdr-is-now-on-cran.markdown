@@ -90,6 +90,6 @@ nmcdr 包自带的 Blocks 数据是一个人为构造的模拟数据，它包含
 ```
 
 最终得到的结果如图：  
-{% img http://pic.yupoo.com/lancezhange_v/DMOspL8a/m1yem.png %}   
+{% asset_img http://pic.yupoo.com/lancezhange_v/DMOspL8a/m1yem.png %}   
 由于没有进行任何参数调节，也没有采取任何预处理措施，所以做到这样的结果已经可以让人满意了。 
 

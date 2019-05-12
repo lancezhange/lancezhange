@@ -1,3 +1,4 @@
+---
 title: "耳谈类增之雅谑篇"
 date: 2015-11-11 18:53:52
 category: life

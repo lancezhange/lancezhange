@@ -1,3 +1,4 @@
+---
 title: "Hello Hexo and Goodbay Octopress"
 date: 2015-05-18 09:30:48
 tags:  [hexo, octopress]

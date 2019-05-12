@@ -1,3 +1,4 @@
+---
 title: "求职记"
 date: 2015-11-11 17:01:31
 category: life

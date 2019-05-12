@@ -1,3 +1,4 @@
+---
 title: "hexo 中使用 impress.js"
 date: 2015-11-23 16:49:39
 tags: [js, hexo]

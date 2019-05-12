@@ -25,10 +25,12 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render: [love/*]
+skip_render:
+  - love/*
+  - gallery/*
 
 # Writing
-new_post_name: :year-:month-:day-:title.md  # File name of new posts
+new_post_name: :year-:month-:day-:title.md # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
@@ -74,7 +76,7 @@ feed:
 # Security
 ##
 encrypt:
-    enable: true
+  enable: true
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
@@ -86,6 +88,6 @@ deploy:
 backup:
   type: git
   theme: maupassant
-  message: hexo blog source   
-  repository: 
+  message: hexo blog source
+  repository:
     github: git@github.com:lancezhange/lancezhange.git,master
