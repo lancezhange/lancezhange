@@ -6,14 +6,15 @@ categories: [tech]
 tags: D3
 layout: single-column
 ---
+
 来看下面这个摆动的蛇的例子<!--more-->
 
-<script src="http://d3js.org/d3.v3.min.js"></script> 
+<script src="http://d3js.org/d3.v3.min.js"></script>
 <div id="body1">
 
 </div>
 
-<script type="text/javascript"> 
+<script type="text/javascript">
 
 var margin = {top: 40, right: 40, bottom: 40, left: 40},
     width = 960 - margin.left - margin.right,

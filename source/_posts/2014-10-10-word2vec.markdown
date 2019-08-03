@@ -7,20 +7,20 @@ tags: nlp
 layout: single-column
 ---
 
-其实听闻[word2vec](http://code.google.com/p/word2vec/)的鼎鼎大名已经很久了，但 google 的C源代码在 windows 下即使用 cygwin 也还是不能 make 成功，总是报出找不到 pthread.h 的错误，而 pthread.h 貌似是 linux 特有的头文件，只好作罢。看到[别人](http://blog.csdn.net/zhoubl668/article/details/24314769)玩 word2vec 玩的很 high, 真是羡慕<!--more-->。  
+其实听闻[word2vec](http://code.google.com/p/word2vec/)的鼎鼎大名已经很久了，但 google 的 C 源代码在 windows 下即使用 cygwin 也还是不能 make 成功，总是报出找不到 pthread.h 的错误，而 pthread.h 貌似是 linux 特有的头文件，只好作罢。看到[别人](http://blog.csdn.net/zhoubl668/article/details/24314769)玩 word2vec 玩的很 high, 真是羡慕<!--more-->。
 
-前些日子，[spark](https://spark.apache.org/) 发布了 1.1.0 版本，其中首次加入了 word2vec 的实现，于是赶紧拿来尝试了一番。让人失望的是，[官方给出的示例](http://people.apache.org/~pwendell/spark-1.1.0-snapshot2-docs/mllib-feature-extraction.html)在我的机子上居然没有跑成功，经过一番实验(`val line = Source.fromFile("e:/tempfile/text8").getLines` 返回 `java.lang.OutOfMemoryError: Java heap space` 的错误，而 `val n = sc.textFile("e:/tempfile/text8").count` 能让 spark 奔溃)，基本可以证实是由于给出的训练文件 text8 格式不对，貌似这个90M+的文件只有一行，而作为一行，它显然太长了。    
+前些日子，[spark](https://spark.apache.org/) 发布了 1.1.0 版本，其中首次加入了 word2vec 的实现，于是赶紧拿来尝试了一番。让人失望的是，[官方给出的示例](http://people.apache.org/~pwendell/spark-1.1.0-snapshot2-docs/mllib-feature-extraction.html)在我的机子上居然没有跑成功，经过一番实验(`val line = Source.fromFile("e:/tempfile/text8").getLines` 返回 `java.lang.OutOfMemoryError: Java heap space` 的错误，而 `val n = sc.textFile("e:/tempfile/text8").count` 能让 spark 奔溃)，基本可以证实是由于给出的训练文件 text8 格式不对，貌似这个 90M+的文件只有一行，而作为一行，它显然太长了。
 
 不必纠结于此，我们改用英国作家简奥斯汀的名作艾玛(**Emma**)一书（可在 [Project Gutenberg](http://www.gutenberg.org/)上下载）来做
 
 ```
     import org.apache.spark.mllib.feature.Word2Vec
-    val input = sc.textFile("e:/database/emma/emma.txt").map(line => line.split(" ").toSeq)  
+    val input = sc.textFile("e:/database/emma/emma.txt").map(line => line.split(" ").toSeq)
     val word2vec = new Word2Vec()
-    val model = word2vec.fit(input)  
+    val model = word2vec.fit(input)
 ```
 
-这样，模型顺利训练出来。下面找一下 Emma 的相近词  
+这样，模型顺利训练出来。下面找一下 Emma 的相近词
 
 ```
     val synonyms = model.findSynonyms("Emma", 40)
@@ -29,7 +29,7 @@ layout: single-column
      }
 ```
 
-不过上面这种打印太难看了，改进一下 
+不过上面这种打印太难看了，改进一下
 
 ```
     synonyms.foreach{case (synonym, cosineSimilarity) => printf("%-20s %-20.16f\n",synonym, cosineSimilarity)}
@@ -37,17 +37,17 @@ layout: single-column
 
 效果如下图
 
-{% asset_img http://pic.yupoo.com/lancezhange_v/E7wetj2D/NRDtx.jpg %}  
+![](http://pic.yupoo.com/lancezhange_v/E7wetj2D/NRDtx.jpg)
 
-下面考虑用中文文本训练一个模型。我用的训练集是很久以前在[数据堂](http://datatang.com/)下载的 历届矛盾文学奖 文本集，其中收录的是前8届茅盾文学奖获奖作品的文本。在用 spark 做 word2vec 之前，必须先做分词。这里我选择用 R 的 **Rwordseg** 包来做分词，并将结果写入 words.txt 文件中（当然，这里我们做的非常粗糙，就是简单的分词，停用词都没处理；如果有个好点的词典，分词的效果会更好，这是题外话）
-     
+下面考虑用中文文本训练一个模型。我用的训练集是很久以前在[数据堂](http://datatang.com/)下载的 历届矛盾文学奖 文本集，其中收录的是前 8 届茅盾文学奖获奖作品的文本。在用 spark 做 word2vec 之前，必须先做分词。这里我选择用 R 的 **Rwordseg** 包来做分词，并将结果写入 words.txt 文件中（当然，这里我们做的非常粗糙，就是简单的分词，停用词都没处理；如果有个好点的词典，分词的效果会更好，这是题外话）
+
 ```
      library(Rwordseg)
-     
+
      data_dir = "E:/database/历届矛盾文学奖作品/历届茅盾文学奖"
      files = list.files(data_dir,pattern="*.txt")
      result_file = "e:/tempfile/words.txt"
-     
+
      for(i in 1: length(files)){
        filename = paste(data_dir, files[i],sep="/")
        content = readLines(filename) # 每一行是一个字符串
@@ -56,41 +56,36 @@ layout: single-column
       }
 ```
 
-得到的 words.txt 不足40M，然后用 spark 做 word2vec，代码和前面的类似。  
-虽然模型也能顺利训练出来，但是新的问题又冒出来了：在 powershell 下，打印出来的相似词全都是乱码。后来各种尝试，包括转换编码方式，将结果写入文件，写成应用提交而不是 spark-shell 运行，等等，都不能解决这个问题。简直是当初用 Python 处理中文的噩梦重演啊，哭----最后仍然未能解决这个问题，囧。  
+得到的 words.txt 不足 40M，然后用 spark 做 word2vec，代码和前面的类似。
+虽然模型也能顺利训练出来，但是新的问题又冒出来了：在 powershell 下，打印出来的相似词全都是乱码。后来各种尝试，包括转换编码方式，将结果写入文件，写成应用提交而不是 spark-shell 运行，等等，都不能解决这个问题。简直是当初用 Python 处理中文的噩梦重演啊，哭----最后仍然未能解决这个问题，囧。
 
-但我的 word2vec 体验之旅怎么能就此结束呢。我又尝试了其他途径，如下    
-Python 的 [Gensim](http://radimrehurek.com/gensim/models/word2vec.html)包也实现了 word2vec 算法，但用  `pip install --upgrade gensim` 安装之后， 用 `import gensim` 加载居然出现  “ImportError: cannot import name utils！”错误，最后未能解决，再次失败！  
-Java 的 [DL4J](http://deeplearning4j.org/compare-dl4j-torch7-pylearn.html)(Deep learning for Java) 工具也有实现 word2vec，但需要安装 LAPACK，这是在 windows 下的又一个噩梦，果断放弃！  
+但我的 word2vec 体验之旅怎么能就此结束呢。我又尝试了其他途径，如下
+Python 的 [Gensim](http://radimrehurek.com/gensim/models/word2vec.html)包也实现了 word2vec 算法，但用 `pip install --upgrade gensim` 安装之后， 用 `import gensim` 加载居然出现 “ImportError: cannot import name utils！”错误，最后未能解决，再次失败！
+Java 的 [DL4J](http://deeplearning4j.org/compare-dl4j-torch7-pylearn.html)(Deep learning for Java) 工具也有实现 word2vec，但需要安装 LAPACK，这是在 windows 下的又一个噩梦，果断放弃！
 大神李舰写了 **tmcn.word2vec** 包，不过，不是发布到 CRAN，而是 R-Forge 上，并且还没有编译好的版本，只能用如下命令从源码编译安装：
 
     install.packages("tmcn.word2vec", repos="http://R-Forge.R-project.org",type="source")
 
-出现编译错误，无解。  
+出现编译错误，无解。
 
-受挫如此，只会让我更加停不下来。皇天不负有心人，终于幸运地找到了一个作者[为 windows 调试的 wrod2vec C源代码版本](https://github.com/zhangyafeikimi/word2vec-win32)，并且托管在 github 上，很方便地下载下来，用 cygwin 执行 make, 虽然还是各种报出 unknown character 的 warnings (who cares warnings?)，但好在顺利编译成功，真感谢这个作者啊  
+受挫如此，只会让我更加停不下来。皇天不负有心人，终于幸运地找到了一个作者[为 windows 调试的 wrod2vec C 源代码版本](https://github.com/zhangyafeikimi/word2vec-win32)，并且托管在 github 上，很方便地下载下来，用 cygwin 执行 make, 虽然还是各种报出 unknown character 的 warnings (who cares warnings?)，但好在顺利编译成功，真感谢这个作者啊
 下面开始训练模型
 
-    ./word2vec -train e:/tempfile/words.txt -output vectors.bin -cbow 0 -size 200 -window 5 -negative 0 -hs 1 -sample 1e-3 -threads 12 -binary 1  
+    ./word2vec -train e:/tempfile/words.txt -output vectors.bin -cbow 0 -size 200 -window 5 -negative 0 -hs 1 -sample 1e-3 -threads 12 -binary 1
 
-(吐槽：我机子的处理能力不行啊，每线程每秒只能处理6K余单词，别人随便都是4W+）  
+(吐槽：我机子的处理能力不行啊，每线程每秒只能处理 6K 余单词，别人随便都是 4W+）
 然后用下面的命令就能交互查询所给单词的相似词
 
     ./distance vectors.bin
 
-附上几张结果截图  
+附上几张结果截图
 
 {% img http://pic.yupoo.com/lancezhange_v/E7vPD3AB/lajKc.png %}
 {% img http://pic.yupoo.com/lancezhange_v/E7vPCLLT/PMzmI.png %}
 {% img http://pic.yupoo.com/lancezhange_v/E7vPCCG9/BvLGj.png %}
 
-结果还不赖。  
+结果还不赖。
 
-## Todo  
+## Todo
+
 - 深入了解一下 word2vec 背后的原理，重点研读几篇相关论文，以及有道技术分享的 [Deep Learning 实战之 Word2vec](http://techblog.youdao.com/?p=915)
-
-  
-
-
-
-
