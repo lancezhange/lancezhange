@@ -2,6 +2,10 @@ language: node_js
 node_js:
   - lts/*
 
+before_install:
+  - export TZ='Asia/Shanghai'
+  - sed -i'' "s~https://github.com/<YOUR NAME>/<YOUR BLOG REPO>.git~https://${GITHUB_TOKEN}@github.com/<YOUR NAME>/<YOUR REPO>.git~" _config.yml
+
 install:
   - npm install hexo-cli -g
   - npm install
