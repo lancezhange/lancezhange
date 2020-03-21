@@ -3,6 +3,7 @@ node_js:
   - lts/*
 
 install:
+  - npm cache verify
   - npm install hexo-cli -g
   - npm install
 
