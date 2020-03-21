@@ -4,14 +4,22 @@ node_js:
 
 before_install:
   - export TZ='Asia/Shanghai'
-  - sed -i'' "s~https://github.com/<YOUR NAME>/<YOUR BLOG REPO>.git~https://${GITHUB_TOKEN}@github.com/<YOUR NAME>/<YOUR REPO>.git~" _config.yml
 
 install:
   - npm install hexo-cli -g
   - npm install
 
 script:
-  - npm run hexo-deploy
+  - hexo g
+
+after_script:
+  - cd ./public
+  - git init
+  - git config user.name "lancezhange"
+  - git config user.email "lancezhange@gmail.com"
+  - git add .
+  - git commit -m "Travis CI Auto Builder at $(date +'%Y-%m-%d %H:%M:%S')"
+  - git push --force --quiet "https://${GITHUB_TOKEN}@$github.com/lancezhage/lancezhange.github.io.git" master:master
 
 cache:
   directories:
