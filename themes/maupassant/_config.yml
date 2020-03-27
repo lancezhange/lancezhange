@@ -1,0 +1,76 @@
+fancybox: true ## If you want to use fancybox please set the value to true.
+duoshuo: ## Your duoshuo_shortname, e.g. username
+disqus: ## Your disqus_shortname, e.g. username
+uyan: ## Your uyan_id. e.g. 1234567
+livere: MTAyMC80NDE4Ny8yMDcyMA==
+gentie: ## bfef37388ac040c7ae3918386e29bec6 ## Your gentie_productKey, e.g. fc799538c7ad4cf5a5a0c2877a90cbd7
+google_search: true ## Use Google search, true/false.
+baidu_search: ## Use Baidu search, true/false.
+swiftype: ## Your swiftype_key, e.g. m7b11ZrsT8Me7gzApciT
+tinysou: ## Your tinysou_key, e.g. 4ac092ad8d749fdc6293
+self_search: ## Use a jQuery-based local search engine, true/false.
+google_analytics: ## Your Google Analytics tracking id, e.g. UA-42425684-2
+baidu_analytics: 4e845ffcfaae47e3a33dcf7c6a07205c ## Your Baidu Analytics tracking id, e.g. 8006843039519956000
+show_category_count: true ## If you want to show the count of categories in the sidebar widget please set the value to true.
+toc_number: true ## If you want to add list number to toc please set the value to true.
+shareto: true ## If you want to use the share button please set the value to true.
+busuanzi: false ## If you want to use Busuanzi page views please set the value to true.
+widgets_on_small_screens: true ## Set to true to enable widgets on small screens.
+
+menu:
+  - page: home
+    directory: .
+    icon: fa-home
+  - page: archive
+    directory: archives/
+    icon: fa-archive
+  - page: 笔记
+    directory: http://www.lancezhange.com/grocery_store/
+    icon: fa-archive
+  - page: about
+    directory: about/
+    icon: fa-user
+  - page: rss
+    directory: atom.xml
+    icon: fa-rss
+  - page: photos
+    directory: gallery/
+    icon: fa-user
+
+widgets: ## Six widgets in sidebar provided: search, category, tag, recent_posts, rencent_comments and links.
+  - search
+  - category
+  - tag
+  - links
+
+links:
+  - title: Yihui
+    url: https://yihui.name/cn/
+  - title: Dandy Weng
+    url: https://blog.dandyweng.com/
+  - title: 城堡阅读周刊
+    url: https://chengbao.bitcron.com/
+  - title: 亚赛
+    url: https://wangyasai.github.io/
+  - title: 万事屋
+    url: https://tcya.xyz/
+  - title: 海德沙龙
+    url: https://headsalon.org/
+  - title: reuixiy
+    url: https://io-oi.me/
+
+# Static files
+js: js
+css: css
+
+canvas_nest:
+  enable: true
+  color: 208,55,66 ## RGB value of the color
+  opacity: 0.3 ## Transparency of lines
+  zIndex: -1 ## The z-index property of the background
+  count: 99 ## Quantity of lines
+
+wordcount: true
+
+# Theme version
+version: 0.0.0
