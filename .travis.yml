@@ -18,8 +18,8 @@ after_script:
   - git config user.name "lancezhange"
   - git config user.email "lancezhange@gmail.com"
   - git add .
-  - git commit -m "Travis CI Auto Builder at $(date +'%Y-%m-%d %H:%M:%S')"
-  - git push --force --quiet "https://${GITHUB_TOKEN}@github.com/lancezhage/lancezhange.github.io.git" master:master
+  - git commit -m "Travis CI Auto Build at $(date +'%Y-%m-%d %H:%M:%S')"
+  - git push --force "https://${GITHUB_TOKEN}@github.com/lancezhage/lancezhange.github.io.git" master:master
 
 cache:
   directories:
