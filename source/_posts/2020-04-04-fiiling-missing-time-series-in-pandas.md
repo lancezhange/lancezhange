@@ -1,7 +1,7 @@
 ---
 title: pandas 填充不完整时间序列
 date: 2020-04-04 22:43:09
-tags: pandas, time-series, 缺失值, 时间序列, python
+tags: [pandas,time-series,缺失值,时间序列,python]
 category: tech
 layout: single-column
 ---
@@ -68,3 +68,4 @@ result = result[['partition_date', 'hour', 'Item', 'value']]
 下面是一个例子（看格式，不要关注内容）
 
 ![](2020-04-04-23-27-26.png)
+
